@@ -1,0 +1,24 @@
+#! /bin/bash
+find /proc -maxdepth 1 -type d -regex '.*/[0-9]+' | awk '{
+	Pid = path[split($1,path,"/")]
+
+	statuscmd = "cat " $1 "/status | grep PPid | cut -f2"
+	statuscmd | getline PPid
+
+	schedcmd = "cat " $1 "/sched | grep -E \"^((nr_switches)|(se.sum_exec_runtime))\""
+	while (schedcmd | getline output) {
+		if (output ~ "nr_switches") {
+			nr_switches = outarr[split(output,outarr,":")]
+		} else {
+			sum_exec_runtime = outarr[split(output,outarr,":")]
+		}
+	}
+
+	ART = 0
+	if (nr_switches != 0){
+		ART = sum_exec_runtime / nr_switches
+	}
+
+	{ print Pid "\t: " PPid "\t:" ART}
+}' | sort -k3 -n > task4file.log
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+echo |
+grep -E '^.*:.*:.*' /etc/passwd |
+sed  "s/:x:/ /g" |
+sed "s/:.*$//g" |
+sort  -n -k2

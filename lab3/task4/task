@@ -1,0 +1,7 @@
+#! /bin/bash
+
+sh loop&pid0=$!
+sh loop&pid1=$!
+sh loop&pid2=$!
+
+renice +10 -p $pid0

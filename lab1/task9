@@ -1,0 +1,4 @@
+#!/bin/bash
+find "/var/log" -iname "*.log"|
+cat|
+wc -l

@@ -1,0 +1,4 @@
+#! /bin/bash
+ps lax | awk '{
+	if (${11} = "Z") kill -9 $4
+}'

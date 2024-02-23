@@ -1,0 +1,102 @@
+1 0 /usr/lib/systemd/systemd--switched-root--system--deserialize16
+2 0
+3 0
+4 0
+6 0
+8 0
+9 0
+10 0
+11 0
+12 0
+13 0
+15 0
+16 0
+17 0
+18 0
+19 0
+20 0
+21 0
+22 0
+23 0
+24 0
+25 0
+26 0
+27 0
+28 0
+29 0
+30 0
+35 0
+126 0
+127 0
+128 0
+129 0
+130 0
+131 0
+132 0
+351 0
+357 0
+358 0
+359 0
+361 0
+362 0
+363 0
+364 0
+365 0
+366 0
+367 0
+369 0
+370 0
+374 0
+375 0
+383 0
+437 0
+447 0
+480 0
+481 0
+571 0 /usr/lib/systemd/systemd-journald
+597 0 /usr/lib/systemd/systemd-udevd
+630 0
+640 0
+665 0
+666 0
+670 0
+672 0
+674 0
+675 0
+676 0
+677 0
+678 0
+679 0
+680 0
+702 0 /usr/bin/rpcbind-w-f
+704 0 /sbin/auditd
+709 0
+710 0
+712 0
+733 0 /usr/lib/polkit-1/polkitd--no-debug
+736 0 /usr/sbin/sssd-i--logger=files
+737 0 /usr/sbin/ModemManager
+738 0 /usr/bin/lsmd-d
+739 0 /usr/sbin/mcelog--ignorenodev--daemon--foreground
+740 0 /usr/sbin/gssproxy-D
+742 0 /usr/bin/dbus-daemon--system--address=systemd:--nofork--nopidfile--systemd-activation--syslog-only
+749 0 /usr/sbin/smartd-n-qnever
+750 0 avahi-daemon: running [linux.local]
+759 0 avahi-daemon: chroot helper
+767 0 /usr/libexec/sssd/sssd_be--domainimplicit_files--uid0--gid0--logger=files
+770 0 /usr/libexec/sssd/sssd_nss--uid0--gid0--logger=files
+771 0 /usr/libexec/platform-python-s/usr/sbin/firewalld--nofork--nopid
+773 0 /usr/lib/systemd/systemd-logind
+787 0 /usr/sbin/NetworkManager--no-daemon
+797 0 /usr/sbin/sshd-D-oCiphers=aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc-oMACs=hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512-oGSSAPIKexAlgorithms=gss-gex-sha1-,gss-group14-sha1--oKexAlgorithms=curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1-oHostKeyAlgorithms=rsa-sha2-256,rsa-sha2-256-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384,ecdsa-sha2-nistp384-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-512-cert-v01@openssh.com,ecdsa-sha2-nistp521,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,ssh-rsa,ssh-rsa-cert-v01@openssh.com-oPubkeyAcceptedKeyTypes=rsa-sha2-256,rsa-sha2-256-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384,ecdsa-sha2-nistp384-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-512-cert-v01@openssh.com,ecdsa-sha2-nistp521,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,ssh-rsa,ssh-rsa-cert-v01@openssh.com-oCASignatureAlgorithms=rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,rsa-sha2-512,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa
+800 0 /usr/libexec/platform-python-Es/usr/sbin/tuned-l-P
+920 0 /usr/sbin/crond-n
+922 0 login -- root
+925 0 /usr/sbin/atd-f
+1308 0 /usr/lib/systemd/systemd--user
+1313 0 (sd-pam)
+1319 0 -bash
+6279 0
+7540 0
+7890 0
+8980 1721760 bashtask7

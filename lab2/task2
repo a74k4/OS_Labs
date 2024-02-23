@@ -1,0 +1,2 @@
+#! /bin/bash
+ps a u x | grep -E '/sbin/.*$' | awk {'print $2'} > task2file.log

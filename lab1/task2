@@ -1,0 +1,9 @@
+#!/bin/bash
+read n
+buf+=$n
+while [[ $n != "q" ]]
+do
+read n
+buf+=$n
+done
+echo $buf

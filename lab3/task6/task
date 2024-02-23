@@ -1,0 +1,4 @@
+#! /bin/bash
+
+bash handler & a=$!
+bash generator $a

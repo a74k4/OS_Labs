@@ -1,0 +1,4 @@
+#! /bin/bash
+ps x a u | grep -E '^root' | wc -l > task1file.log
+echo "PID	COMMAND" >> task1file.log
+ps x a u | grep -E '^root' | awk '{print $2 "	"  $11}' >> task1file.log

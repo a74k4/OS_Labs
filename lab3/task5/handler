@@ -1,0 +1,41 @@
+#! /bin/bash
+command="+"
+echo "Mode: plus"
+result=0
+tail -f pipe |
+while true;
+do
+	read line
+	case $line in
+		"+")
+			command="$line"
+			echo "Mode: plus"
+		;;
+		"*")
+			command="$line"
+			echo "Mode: multiply"
+		;;
+		"QUIT")
+			killall tail
+			echo "end handler"
+			exit 0
+		;;
+		[0-9])
+			case $command in
+				"+")
+					result=$(($result + $line))
+					echo $result
+				;;
+				"*")
+					result=$(($result * $line))
+					echo $result
+				;;
+			esac
+		;;
+		*)
+			killall tail
+			echo "end: ERROR"
+			exit 1
+		;;
+	esac
+done
