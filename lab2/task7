@@ -17,7 +17,7 @@ do
 	fi
 done
 
-sleep 10
+sleep 60
 
 for pid in "${pids[@]}"
 do

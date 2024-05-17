@@ -4,16 +4,4 @@ mkdir /home/test && {
 	touch /home/test/$(date +'%Y-%b-%d_%T')
 }
 
-#ping www.net-nikogo.ru || echo $(date +'%Y-%b-%d %T') "ping failed" >> /home/report.txt
-
-cat list | while read site
-do
-	ping -c 1 "$site"
-	if [ $? -eq 0 ];
-	then
-		echo $site ' is working'
-		break
-	else
-		echo $site ' is not working'
-	fi
-done
+ping www.net-nikogo.ru || echo $(date +'%Y-%b-%d %T') "ping failed" >> /home/report.txt

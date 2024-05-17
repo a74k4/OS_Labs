@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -EIhor "[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+" "/etc" > emails.lst
+grep -EIhor "[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+" "/etc" | awk '{printf("%s, ", $1)}' > emails.lst

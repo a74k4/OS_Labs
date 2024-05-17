@@ -5,3 +5,4 @@ sh loop&pid1=$!
 sh loop&pid2=$!
 
 renice +10 -p $pid0
+kill $pid2

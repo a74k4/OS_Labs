@@ -1,0 +1,48 @@
+#!/bin/bash
+
+file_name="$1"
+if [[ -z "file_name" ]]; then
+  echo "write name of file"
+  exit 1
+fi 
+
+while read -r line
+do 
+  file_path=$(echo "$line" | awk '{print $1}')
+  trash_name=$(echo "$line" | awk '{print $2}')
+  cur_file_name=$(basename "$file_path")
+  dir=$(dirname $file_path)
+
+  if [[ "$cur_file_name" != "$file_name" ]]; then
+    continue
+  fi 
+
+  while true; do 
+    read -r -u 1 -p "do you want to restore file $file_path y/n " response
+    case "$response" in 
+      [yY])
+        if [[ ! -d "$dir" ]]; then
+          dir="$PWD"
+        fi 
+        while [[ -f "$dir/$cur_file_name" ]]; do 
+          read -r -u 1 -p "write another name or write stop" cur_file_name
+          if [[ "cur_file_name" -eq "stop" ]]; then
+            exit 2
+          fi 
+        done
+        ln "$PWD/.trash/$trash_name" "$dir/$cur_file_name"
+        rm "$PWD/.trash/$trash_name"
+        sed -i "/$trash_name/d" "$PWD/.trash.log"
+        break 
+        ;;
+      [nN])
+        break
+        ;;
+      [*])
+        exit 3
+        ;;
+    esac
+  done
+done < "$PWD/.trash.log"
+
+

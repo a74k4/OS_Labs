@@ -1,2 +1,2 @@
 #! /bin/bash
-echo "$$"
+ps a u x | tail -n 1 | awk '{print $2}' 

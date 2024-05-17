@@ -1,0 +1,14 @@
+#!/bin/bash
+rm pipe
+mkfifo pipe
+
+tail -f pipe |
+while true; do
+	read last_message
+	if [[ $last_message == "Акулы приближаются" ]]; then
+		pkill -f "notify_process"
+		echo "Спасен"
+		rm pipe
+		exit 1
+	fi
+done
