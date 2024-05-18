@@ -1,0 +1,49 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <file_path> <command>"
+  exit 1
+fi
+
+FILE_PATH=$1
+COMMAND=$2
+AS_GIT_DIR=".as_git"
+LOG_FILE="${FILE_PATH}.log"
+
+if [ ! -d "$AS_GIT_DIR" ]; then
+  mkdir "$AS_GIT_DIR"
+  echo "Created directory: $AS_GIT_DIR"
+fi
+  
+compare_files() {
+  if [ -f "$AS_GIT_DIR/$FILE_PATH" ]; then
+    diff "$FILE_PATH" "$AS_GIT_DIR/$FILE_PATH" > "$LOG_FILE"
+    echo "Comparison result written to: $LOG_FILE"
+  else
+    cp "$FILE_PATH" "$AS_GIT_DIR/$FILE_PATH"
+    echo "File copied to: $AS_GIT_DIR/$FILE_PATH"
+  fi
+}
+
+recover_file() {
+  if [ -f "$AS_GIT_DIR/$FILE_PATH" ]; then
+    rm "$FILE_PATH"
+    ln "$AS_GIT_DIR/$FILE_PATH" "$FILE_PATH"
+    echo "File recovered from: $AS_GIT_DIR/$FILE_PATH"
+  else
+    echo "No backup found in: $AS_GIT_DIR"
+  fi
+}
+
+case "$COMMAND" in
+  check)
+    compare_files
+    ;;
+  recover)
+    recover_file
+    ;;
+  *)
+    echo "Unknown command: $COMMAND"
+    exit 1
+    ;;
+esac
