@@ -33,4 +33,4 @@ fi
 ln "$file" "$tdir/$count"
 rm "$file"
 
-printf "%s %s\n" "$PWD/$file" "$count" >> $tlog
+printf "%s\t%s\n" "$PWD/$file" "$count" >> $tlog

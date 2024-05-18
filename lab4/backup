@@ -19,11 +19,11 @@ if [[ $difference -le 7*24*60*60 ]]; then
             size=$(stat -c %s "$filename")
             if [[ $size -ne $copy_size ]]; then
                 mv "/home/user/Backup-$last_backup/$(basename "$filename")" "/home/user/Backup-$last_backup/$(basename "$filename").$(date +%F)"
-                cp "$filename" /home/user/Backup-"$last_backup"
+                cp -ra "$filename" /home/user/Backup-"$last_backup"
                 update_files+="$(basename "$filename") $(basename "$filename").$(date +%F)\n"
             fi
         else
-            cp "$filename" /home/user/Backup-"$last_backup"
+            cp -ra "$filename" /home/user/Backup-"$last_backup"
             new_files+="$(basename "$filename")\n"
         fi
     done
@@ -33,11 +33,6 @@ else
     last_backup=$(date +%F)
     mkdir /home/user/Backup-"$last_backup"
     echo "[$(date +%F)] new backup folder created: Backup-$last_backup" >> /home/user/backup-report
-    for filename in /home/user/source/*; do
-        if [ ! -f "$filename" ]; then
-            continue
-        fi
-        cp "$filename" /home/user/Backup-"$last_backup"
-        echo "$(basename "$filename")" >> /home/user/backup-report
-    done
+    cp -ra "/home/user/source/*" /home/user/Backup-"$last_backup"
+    echo "copied" >> /home/user/backup-report
 fi

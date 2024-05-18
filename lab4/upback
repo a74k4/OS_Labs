@@ -13,5 +13,5 @@ for filename in "$last_backup"/*; do
     if echo "$name" | grep -Pq '^\w+\.\d{4}-\d{2}-\d{2}$'; then
         continue
     fi
-    cp "$filename" /home/user/restore/"$name"
+    cp -ra "$filename" /home/user/restore/"$name"
 done
