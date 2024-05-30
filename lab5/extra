@@ -1,0 +1,40 @@
+#!/bin/bash
+
+HISTORY_DIR="./process_memory_history"
+
+mkdir -p "$HISTORY_DIR"
+
+collect_memory_usage() {
+    
+    ps -e -o pid,comm --no-headers | while read pid comm; do
+        mem_usage=$(pmap "$pid" | tail -n 1 | awk '/[0-9]K/{print $2}' | sed 's/K//')
+
+        
+        if [ -n "$mem_usage" ]; then
+            echo "$(date '+%Y-%m-%d %H:%M:%S') $mem_usage" >> "$HISTORY_DIR/$pid-$comm.memory"
+        fi
+    done
+}
+
+show_statistics() {
+    
+    for file in "$HISTORY_DIR"/*.memory; do
+        
+        pid_comm=$(basename "$file" .memory)
+        pid=$(echo "$pid_comm" | cut -d'-' -f1)
+        comm=$(echo "$pid_comm" | cut -d'-' -f2-)
+
+        
+        echo "Process: $comm (PID: $pid)"
+
+        cat "$file"
+        echo "-----"
+    done
+}
+
+# Основной блок
+if [ "$1" == "--stats" ]; then
+    show_statistics
+else
+    collect_memory_usage
+fi
